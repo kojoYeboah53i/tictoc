@@ -3,15 +3,37 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component {
-    render() {
-      return (
-        <button className="square" onClick= {function (){alert("clicked");}}>
-          {this.props.value}
-          {/* console.log(this.props.value) */}
-        </button>
-      );
+    constructor(props){
+        super(props);
+        this.state = {
+            value : null,
+        };
     }
+//     render() {
+//       return (
+//         // <button className="square" onClick= {function (){alert("clicked");}}>
+//         /* arrow function */
+//         <button className="square" onClick= { () => alert("clickp")}>
+//           {this.props.value}
+//           {/* console.log(this.props.value) */}
+//         </button>
+//       );
+//     }
+//   }
+
+                            /** return state */
+  render() {
+    return (
+   
+        <button
+        className="square"
+        onClick={() => this.setState({value: 'X'})}
+      >
+        {this.state.value}
+      </button>
+    );
   }
+}
   
   class Board extends React.Component {
     renderSquare(i) {
